@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://gaoneng.work/"/>
-  <updated>2018-07-24T10:37:11.364Z</updated>
+  <updated>2018-07-23T10:23:21.913Z</updated>
   <id>http://gaoneng.work/</id>
   
   <author>
@@ -15,34 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>hello</title>
-    <link href="http://gaoneng.work/2018/07/24/hello/"/>
-    <id>http://gaoneng.work/2018/07/24/hello/</id>
-    <published>2018-07-24T10:37:11.000Z</published>
-    <updated>2018-07-24T10:37:11.364Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>hello world</title>
-    <link href="http://gaoneng.work/2018/07/24/hello-world-1/"/>
-    <id>http://gaoneng.work/2018/07/24/hello-world-1/</id>
-    <published>2018-07-24T10:35:44.000Z</published>
-    <updated>2018-07-24T10:35:44.966Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>Hello World</title>
