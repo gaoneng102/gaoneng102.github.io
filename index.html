@@ -121,6 +121,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="Mike's Notes" type="application/atom+xml" />
+
 
 
 
@@ -337,7 +339,7 @@
                 
               
 
-              <time title="Created: 2018-07-26 11:03:35 / Modified: 11:16:45" itemprop="dateCreated datePublished" datetime="2018-07-26T11:03:35+08:00">2018-07-26</time>
+              <time title="Created: 2018-07-26 11:03:35 / Modified: 18:38:30" itemprop="dateCreated datePublished" datetime="2018-07-26T11:03:35+08:00">2018-07-26</time>
             
 
             
@@ -376,19 +378,22 @@
 
       
         
-          
-          组件化的目标
-代码解耦
-组件单独运行
-跨模块通信
-集成调试
-代码边界
-
-组件化关键技术点代码解耦
-一种是基础库library，这些代码被其他组件直接引用。比如网络库module可以认为是一个library
-另一种我们称之为Component，这种module是一个完整的功能模块
-负责拼装这些组件以形
-          ...
+          <h2 id="组件化的目标"><a href="#组件化的目标" class="headerlink" title="组件化的目标"></a>组件化的目标</h2><ul>
+<li>代码解耦</li>
+<li>组件单独运行</li>
+<li>跨模块通信</li>
+<li>集成调试</li>
+<li>代码边界</li>
+</ul>
+<h2 id="组件化关键技术点"><a href="#组件化关键技术点" class="headerlink" title="组件化关键技术点"></a>组件化关键技术点</h2><h3 id="代码解耦"><a href="#代码解耦" class="headerlink" title="代码解耦"></a>代码解耦</h3><ul>
+<li>一种是基础库library，这些代码被其他组件直接引用。比如网络库module可以认为是一个library</li>
+<li>另一种我们称之为Component，这种module是一个完整的功能模块</li>
+<li>负责拼装这些组件以形成一个完成app的module，一般我们称之为主项目、主module或者Host</li>
+</ul>
+<h3 id="组件单独运行"><a href="#组件单独运行" class="headerlink" title="组件单独运行"></a>组件单独运行</h3><ul>
+<li>只需要把apply plugin: ‘com.android.library’切换成apply plugin: ‘com.android.application’就可以，但是我们还需要修改下AndroidManifest文件，因为一个单独调试需要有一个入口的actiivity<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(isRunAlone.toBoolean())&#123;</span><br><span class="line">    apply plugin: <span class="string">'com.android.application'</span></span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    apply plugin: <span class="string">'com.android.library'</span></span><br><span class="line">&#125;</span><br><span class="line">.....</span><br><span class="line">resourcePrefix <span class="string">"readerbook_"</span></span><br><span class="line">sourceSets &#123;</span><br><span class="line">     main &#123;</span><br><span class="line">           <span class="keyword">if</span> (isRunAlone.toBoolean()) &#123;</span><br><span class="line">                  manifest.srcFile <span class="string">'src/main/runalone/AndroidManifest.xml'</span></span><br><span class="line">                  java.srcDirs = [<span class="string">'src/main/java'</span>,<span class="string">'src/main/runalone/java'</span>]</span><br><span class="line">                  res.srcDirs = [<span class="string">'src/main/res'</span>,<span class="string">'src/main/runalone/res'</span>]</span><br><span class="line">           &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                  manifest.srcFile <span class="string">'src/main/AndroidManifest.xml'</span></span><br><span class="line">           &#125;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/07/26/Android组件化思考/#more" rel="contents">
@@ -493,7 +498,7 @@
                 
               
 
-              <time title="Created: 2018-07-26 09:41:17 / Modified: 10:16:38" itemprop="dateCreated datePublished" datetime="2018-07-26T09:41:17+08:00">2018-07-26</time>
+              <time title="Created: 2018-07-26 09:41:17 / Modified: 18:37:44" itemprop="dateCreated datePublished" datetime="2018-07-26T09:41:17+08:00">2018-07-26</time>
             
 
             
@@ -532,13 +537,13 @@
 
       
         
-          
-          
-安装ubuntu（基于16.04）步骤http://www.linuxdiyf.com/linux/20012.html
-
-如果是Windows与Linux双系统安装，请选择其他选项，切记。您可以自己创建、调整分区，或者为 Ubuntu 选择多个分区。
-四个分区即可/boot、/、/home、sw
-          ...
+          <p><img src="http://pcga627s7.bkt.clouddn.com/ubuntuforandroid.png" alt="Ubuntu &amp;&amp; Android"></p>
+<h2 id="安装ubuntu（基于16-04）"><a href="#安装ubuntu（基于16-04）" class="headerlink" title="安装ubuntu（基于16.04）"></a>安装ubuntu（基于16.04）</h2><h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p><a href="http://www.linuxdiyf.com/linux/20012.html" target="_blank" rel="noopener">http://www.linuxdiyf.com/linux/20012.html</a></p>
+<ul>
+<li>如果是Windows与Linux双系统安装，请选择其他选项，切记。您可以自己创建、调整分区，或者为 Ubuntu 选择多个分区。</li>
+<li>四个分区即可/boot、/、/home、swap。/home尽量给大点，因为平时使用的主要目录还是这里</li>
+<li>最后一步安装启动程序选择/boot，这样就不会覆盖其他系统的启动</li>
+<li>建议在有线网络下安装，因为wifi可能无法使用，导致安装之后某些图形界面的组件没有正常下载安装导致 “The system is running in low-graphics mode”异常<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/07/26/在Ubuntu搭建安卓开发环境/#more" rel="contents">
@@ -660,7 +665,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-07-26 10:12:39" itemprop="dateModified" datetime="2018-07-26T10:12:39+08:00">2018-07-26</time>
+                <time title="Modified: 2018-07-26 18:38:54" itemprop="dateModified" datetime="2018-07-26T18:38:54+08:00">2018-07-26</time>
               
             
           </span>
@@ -694,15 +699,22 @@
 
       
         
-          
-          内存相关的概念Java内存分配
-静态储存区：编译时就分配好，在程序整个运行期间都存在。它主要存放静态数据和常量；
-栈区：局部变量，基本类型数据，对象的引用；
-堆区：存放，new出来的对象，由 Java 垃圾回收器回收；
-
-四种引用类型
-强引用(StrongReference)：JVM 宁可抛出 OO
-          ...
+          <h2 id="内存相关的概念"><a href="#内存相关的概念" class="headerlink" title="内存相关的概念"></a>内存相关的概念</h2><h3 id="Java内存分配"><a href="#Java内存分配" class="headerlink" title="Java内存分配"></a>Java内存分配</h3><ul>
+<li>静态储存区：编译时就分配好，在程序整个运行期间都存在。它主要存放静态数据和常量；</li>
+<li>栈区：局部变量，基本类型数据，对象的引用；</li>
+<li>堆区：存放，new出来的对象，由 Java 垃圾回收器回收；</li>
+</ul>
+<h3 id="四种引用类型"><a href="#四种引用类型" class="headerlink" title="四种引用类型"></a>四种引用类型</h3><ul>
+<li>强引用(StrongReference)：JVM 宁可抛出 OOM ，也不会让 GC 回收具有强引用的对象；</li>
+<li>软引用(SoftReference)：只有在内存空间不足时，才会被回的对象；</li>
+<li>弱引用(WeakReference)：在 GC 时，一旦发现了只具有弱引用的对象，不管当前内存空间足够与否，都会回收它的内存；</li>
+<li>虚引用(PhantomReference)：任何时候都可以被GC回收，当垃圾回收器准备回收一个对象时，如果发现它还有虚引用，就<br>会在回收对象的内存之前，把这个虚引用加入到与之关联的引用队列中。程序可以通过判断引用队列中是否存在该对象的虚引用，<br>来了解这个对象是否将要被回收。可以用来作为GC回收Object的标志。</li>
+</ul>
+<h3 id="Android内存管理"><a href="#Android内存管理" class="headerlink" title="Android内存管理"></a>Android内存管理</h3><ul>
+<li>为了整个Android系统的内存控制需要，Android系统为每一个应用程序都设置了一个硬性的Dalvik Heap Size最大限制阈值，<br>这个阈值在不同的设备上会因为RAM大小不同而各有差异。如果你的应用占用内存空间已经接近这个阈值，此时再尝试分配内存的话，<br>很容易引起OutOfMemoryError的错误；</li>
+<li><code>ActivityManager.getMemoryClass()</code>可以用来查询当前应用的Heap Size阈值，这个方法会返回一个整数，表明你的应用<br>的Heap Size阈值是多少Mb(megabates)；</li>
+</ul>
+<h3 id="Android内存泄露"><a href="#Android内存泄露" class="headerlink" title="Android内存泄露"></a>Android内存泄露</h3><p>  <em>我们常说的内存泄漏是指new出来的Object无法被GC回收，即为强引用。通俗来讲，就是对象已不再使用，但是依然持有对它的强引用</em><br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/07/25/android内存泄露常见情景以及解决方案/#more" rel="contents">
@@ -824,6 +836,13 @@
             </nav>
           
 
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
           
 
           
