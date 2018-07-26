@@ -108,17 +108,18 @@
 
 
 
-  <meta name="description" content="移动端个人技术总结和分享">
-<meta name="keywords" content="Android,ios,Linux">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mike&#39;s Notes">
-<meta property="og:url" content="http://gaoneng.work/index.html">
+  <meta name="description" content="组件化的目标 代码解耦 组件单独运行 跨模块通信 集成调试 代码边界  组件化关键技术点代码解耦 一种是基础库library，这些代码被其他组件直接引用。比如网络库module可以认为是一个library 另一种我们称之为Component，这种module是一个完整的功能模块 负责拼装这些组件以形成一个完成app的module，一般我们称之为主项目、主module或者Host  组件单独运行 只">
+<meta name="keywords" content="Android,组件化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android组件化思考">
+<meta property="og:url" content="http://gaoneng.work/2018/07/26/Android组件化思考/index.html">
 <meta property="og:site_name" content="Mike&#39;s Notes">
-<meta property="og:description" content="移动端个人技术总结和分享">
+<meta property="og:description" content="组件化的目标 代码解耦 组件单独运行 跨模块通信 集成调试 代码边界  组件化关键技术点代码解耦 一种是基础库library，这些代码被其他组件直接引用。比如网络库module可以认为是一个library 另一种我们称之为Component，这种module是一个完整的功能模块 负责拼装这些组件以形成一个完成app的module，一般我们称之为主项目、主module或者Host  组件单独运行 只">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-26T03:16:45.084Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mike&#39;s Notes">
-<meta name="twitter:description" content="移动端个人技术总结和分享">
+<meta name="twitter:title" content="Android组件化思考">
+<meta name="twitter:description" content="组件化的目标 代码解耦 组件单独运行 跨模块通信 集成调试 代码边界  组件化关键技术点代码解耦 一种是基础库library，这些代码被其他组件直接引用。比如网络库module可以认为是一个library 另一种我们称之为Component，这种module是一个完整的功能模块 负责拼装这些组件以形成一个完成app的module，一般我们称之为主项目、主module或者Host  组件单独运行 只">
 
 
 
@@ -127,7 +128,7 @@
 
 
 
-  <link rel="canonical" href="http://gaoneng.work/"/>
+  <link rel="canonical" href="http://gaoneng.work/2018/07/26/Android组件化思考/"/>
 
 
 
@@ -137,7 +138,7 @@
   };
 </script>
 
-  <title>Mike's Notes</title>
+  <title>Android组件化思考 | Mike's Notes</title>
   
 
 
@@ -184,8 +185,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <a href="https://github.com/gaoneng102" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -226,7 +226,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
     <a href="/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
   </li>
@@ -278,9 +278,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -312,11 +312,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/26/Android组件化思考/" itemprop="url">
-                  Android组件化思考
-                </a>
+          <h1 class="post-title" itemprop="name headline">Android组件化思考
               
             
           </h1>
@@ -379,28 +375,55 @@
       
 
       
-        
-          
-          组件化的目标
-代码解耦
-组件单独运行
-跨模块通信
-集成调试
-代码边界
+        <h2 id="组件化的目标"><a href="#组件化的目标" class="headerlink" title="组件化的目标"></a>组件化的目标</h2><ul>
+<li>代码解耦</li>
+<li>组件单独运行</li>
+<li>跨模块通信</li>
+<li>集成调试</li>
+<li>代码边界</li>
+</ul>
+<h2 id="组件化关键技术点"><a href="#组件化关键技术点" class="headerlink" title="组件化关键技术点"></a>组件化关键技术点</h2><h3 id="代码解耦"><a href="#代码解耦" class="headerlink" title="代码解耦"></a>代码解耦</h3><ul>
+<li>一种是基础库library，这些代码被其他组件直接引用。比如网络库module可以认为是一个library</li>
+<li>另一种我们称之为Component，这种module是一个完整的功能模块</li>
+<li>负责拼装这些组件以形成一个完成app的module，一般我们称之为主项目、主module或者Host</li>
+</ul>
+<h3 id="组件单独运行"><a href="#组件单独运行" class="headerlink" title="组件单独运行"></a>组件单独运行</h3><ul>
+<li>只需要把apply plugin: ‘com.android.library’切换成apply plugin: ‘com.android.application’就可以，但是我们还需要修改下AndroidManifest文件，因为一个单独调试需要有一个入口的actiivity<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(isRunAlone.toBoolean())&#123;</span><br><span class="line">    apply plugin: <span class="string">'com.android.application'</span></span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    apply plugin: <span class="string">'com.android.library'</span></span><br><span class="line">&#125;</span><br><span class="line">.....</span><br><span class="line">resourcePrefix <span class="string">"readerbook_"</span></span><br><span class="line">sourceSets &#123;</span><br><span class="line">     main &#123;</span><br><span class="line">           <span class="keyword">if</span> (isRunAlone.toBoolean()) &#123;</span><br><span class="line">                  manifest.srcFile <span class="string">'src/main/runalone/AndroidManifest.xml'</span></span><br><span class="line">                  java.srcDirs = [<span class="string">'src/main/java'</span>,<span class="string">'src/main/runalone/java'</span>]</span><br><span class="line">                  res.srcDirs = [<span class="string">'src/main/res'</span>,<span class="string">'src/main/runalone/res'</span>]</span><br><span class="line">           &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                  manifest.srcFile <span class="string">'src/main/AndroidManifest.xml'</span></span><br><span class="line">           &#125;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="跨模块通信"><a href="#跨模块通信" class="headerlink" title="跨模块通信"></a>跨模块通信</h3><ul>
+<li>UI之间的跳转用的是一个中央路由的方式，这里使用阿里的ARouter</li>
+<li>数据传输使用接口回调的方式或者eventbus</li>
+</ul>
+<h3 id="集成调试"><a href="#集成调试" class="headerlink" title="集成调试"></a>集成调试</h3><ul>
+<li>主项目直接依赖各个组件或者通过生成aar的方式进行依赖，组成完整app进行调试</li>
+</ul>
+<h3 id="代码边界"><a href="#代码边界" class="headerlink" title="代码边界"></a>代码边界</h3><ul>
+<li>组件之间不能直接调用，或者主项目不能直接使用组件中的具体类，要保持组件之间严格的独立</li>
+<li>通过自定义gradle插件，将主项目依赖组件的代码放在运行时添加，这样在编译器就无法直接使用组件中的类</li>
+</ul>
+<h2 id="业务拆分"><a href="#业务拆分" class="headerlink" title="业务拆分"></a>业务拆分</h2><h3 id="core基础组件层"><a href="#core基础组件层" class="headerlink" title="core基础组件层"></a>core基础组件层</h3><ul>
+<li>通用的开源库（网络，图片，工具）</li>
+<li>网络库</li>
+<li>自研工具库</li>
+</ul>
+<h3 id="business基础业务组件层"><a href="#business基础业务组件层" class="headerlink" title="business基础业务组件层"></a>business基础业务组件层</h3><ul>
+<li>mvp,mvvm架构的基类</li>
+<li>业务相关的开源UI控件</li>
+<li>业务相关的拓展函数(kotlin相关)</li>
+<li>统一的图片，字符串，主题样式</li>
+</ul>
+<h3 id="commonbusiness通用业务组件层"><a href="#commonbusiness通用业务组件层" class="headerlink" title="commonbusiness通用业务组件层"></a>commonbusiness通用业务组件层</h3><p>这里会包含多个module，每个module只负责唯一一种功能</p>
+<ul>
+<li>登录注册module业务组件</li>
+<li>IM消息module业务组件</li>
+<li>钱包支付module业务组件</li>
+<li>版本更新module业务组件</li>
+<li>调试设置module业务组件</li>
+</ul>
+<h3 id="具体业务层"><a href="#具体业务层" class="headerlink" title="具体业务层"></a>具体业务层</h3><p>实现具体的业务代码，用到通用业务组件，就使用路由跳转，避免直接使用</p>
+<h2 id="组件化工具"><a href="#组件化工具" class="headerlink" title="组件化工具"></a>组件化工具</h2><p>集成调试和组件调试，需要配置不同的android插件，所以需要自定义gradle插件来自动化处理上面的过程<br><a href="https://github.com/luojilab/DDComponentForAndroid" target="_blank" rel="noopener">https://github.com/luojilab/DDComponentForAndroid</a></p>
 
-组件化关键技术点代码解耦
-一种是基础库library，这些代码被其他组件直接引用。比如网络库module可以认为是一个library
-另一种我们称之为Component，这种module是一个完整的功能模块
-负责拼装这些组件以形
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/26/Android组件化思考/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
 
@@ -418,328 +441,38 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gaoneng.work/2018/07/26/在Ubuntu搭建安卓开发环境/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Author">
-      <meta itemprop="description" content="移动端个人技术总结和分享">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mike's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/26/在Ubuntu搭建安卓开发环境/" itemprop="url">
-                  在Ubuntu搭建安卓开发环境
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-07-26 09:41:17 / Modified: 10:16:38" itemprop="dateCreated datePublished" datetime="2018-07-26T09:41:17+08:00">2018-07-26</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/Android/" rel="tag"># Android</a>
           
-            
+            <a href="/tags/组件化/" rel="tag"># 组件化</a>
           
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          
-          
-安装ubuntu（基于16.04）步骤http://www.linuxdiyf.com/linux/20012.html
-
-如果是Windows与Linux双系统安装，请选择其他选项，切记。您可以自己创建、调整分区，或者为 Ubuntu 选择多个分区。
-四个分区即可/boot、/、/home、sw
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/26/在Ubuntu搭建安卓开发环境/#more" rel="contents">
-              Read more &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/26/在Ubuntu搭建安卓开发环境/" rel="next" title="在Ubuntu搭建安卓开发环境">
+                <i class="fa fa-chevron-left"></i> 在Ubuntu搭建安卓开发环境
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gaoneng.work/2018/07/25/android内存泄露常见情景以及解决方案/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Author">
-      <meta itemprop="description" content="移动端个人技术总结和分享">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mike's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/25/android内存泄露常见情景以及解决方案/" itemprop="url">
-                  android内存泄露常见情景以及解决方案
-                </a>
-              
+          <div class="post-nav-prev post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-07-25 19:42:19" itemprop="dateCreated datePublished" datetime="2018-07-25T19:42:19+08:00">2018-07-25</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-07-26 10:12:39" itemprop="dateModified" datetime="2018-07-26T10:12:39+08:00">2018-07-26</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-          内存相关的概念Java内存分配
-静态储存区：编译时就分配好，在程序整个运行期间都存在。它主要存放静态数据和常量；
-栈区：局部变量，基本类型数据，对象的引用；
-堆区：存放，new出来的对象，由 Java 垃圾回收器回收；
-
-四种引用类型
-强引用(StrongReference)：JVM 宁可抛出 OO
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/25/android内存泄露常见情景以及解决方案/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -749,14 +482,19 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -777,8 +515,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -867,6 +614,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#组件化的目标"><span class="nav-number">1.</span> <span class="nav-text">组件化的目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件化关键技术点"><span class="nav-number">2.</span> <span class="nav-text">组件化关键技术点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码解耦"><span class="nav-number">2.1.</span> <span class="nav-text">代码解耦</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件单独运行"><span class="nav-number">2.2.</span> <span class="nav-text">组件单独运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跨模块通信"><span class="nav-number">2.3.</span> <span class="nav-text">跨模块通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集成调试"><span class="nav-number">2.4.</span> <span class="nav-text">集成调试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码边界"><span class="nav-number">2.5.</span> <span class="nav-text">代码边界</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#业务拆分"><span class="nav-number">3.</span> <span class="nav-text">业务拆分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#core基础组件层"><span class="nav-number">3.1.</span> <span class="nav-text">core基础组件层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#business基础业务组件层"><span class="nav-number">3.2.</span> <span class="nav-text">business基础业务组件层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#commonbusiness通用业务组件层"><span class="nav-number">3.3.</span> <span class="nav-text">commonbusiness通用业务组件层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#具体业务层"><span class="nav-number">3.4.</span> <span class="nav-text">具体业务层</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件化工具"><span class="nav-number">4.</span> <span class="nav-text">组件化工具</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -994,6 +757,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
 
   
 

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://gaoneng.work/"/>
-  <updated>2018-07-26T02:16:38.342Z</updated>
+  <updated>2018-07-26T03:16:45.084Z</updated>
   <id>http://gaoneng.work/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android组件化思考</title>
+    <link href="http://gaoneng.work/2018/07/26/Android%E7%BB%84%E4%BB%B6%E5%8C%96%E6%80%9D%E8%80%83/"/>
+    <id>http://gaoneng.work/2018/07/26/Android组件化思考/</id>
+    <published>2018-07-26T03:03:35.000Z</published>
+    <updated>2018-07-26T03:16:45.084Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="组件化的目标"><a href="#组件化的目标" class="headerlink" title="组件化的目标"></a>组件化的目标</h2><ul><li>代码解耦</li><li>组件单独运行</li><li>跨模块通信</li><li>集成调试</li><li>代码边界</li></ul><h2 id="组件化关键技术点"><a href="#组件化关键技术点" class="headerlink" title="组件化关键技术点"></a>组件化关键技术点</h2><h3 id="代码解耦"><a href="#代码解耦" class="headerlink" title="代码解耦"></a>代码解耦</h3><ul><li>一种是基础库library，这些代码被其他组件直接引用。比如网络库module可以认为是一个library</li><li>另一种我们称之为Component，这种module是一个完整的功能模块</li><li>负责拼装这些组件以形成一个完成app的module，一般我们称之为主项目、主module或者Host</li></ul><h3 id="组件单独运行"><a href="#组件单独运行" class="headerlink" title="组件单独运行"></a>组件单独运行</h3><ul><li>只需要把apply plugin: ‘com.android.library’切换成apply plugin: ‘com.android.application’就可以，但是我们还需要修改下AndroidManifest文件，因为一个单独调试需要有一个入口的actiivity<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(isRunAlone.toBoolean())&#123;</span><br><span class="line">    apply plugin: <span class="string">'com.android.application'</span></span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    apply plugin: <span class="string">'com.android.library'</span></span><br><span class="line">&#125;</span><br><span class="line">.....</span><br><span class="line">resourcePrefix <span class="string">"readerbook_"</span></span><br><span class="line">sourceSets &#123;</span><br><span class="line">     main &#123;</span><br><span class="line">           <span class="keyword">if</span> (isRunAlone.toBoolean()) &#123;</span><br><span class="line">                  manifest.srcFile <span class="string">'src/main/runalone/AndroidManifest.xml'</span></span><br><span class="line">                  java.srcDirs = [<span class="string">'src/main/java'</span>,<span class="string">'src/main/runalone/java'</span>]</span><br><span class="line">                  res.srcDirs = [<span class="string">'src/main/res'</span>,<span class="string">'src/main/runalone/res'</span>]</span><br><span class="line">           &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                  manifest.srcFile <span class="string">'src/main/AndroidManifest.xml'</span></span><br><span class="line">           &#125;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul><h3 id="跨模块通信"><a href="#跨模块通信" class="headerlink" title="跨模块通信"></a>跨模块通信</h3><ul><li>UI之间的跳转用的是一个中央路由的方式，这里使用阿里的ARouter</li><li>数据传输使用接口回调的方式或者eventbus</li></ul><h3 id="集成调试"><a href="#集成调试" class="headerlink" title="集成调试"></a>集成调试</h3><ul><li>主项目直接依赖各个组件或者通过生成aar的方式进行依赖，组成完整app进行调试</li></ul><h3 id="代码边界"><a href="#代码边界" class="headerlink" title="代码边界"></a>代码边界</h3><ul><li>组件之间不能直接调用，或者主项目不能直接使用组件中的具体类，要保持组件之间严格的独立</li><li>通过自定义gradle插件，将主项目依赖组件的代码放在运行时添加，这样在编译器就无法直接使用组件中的类</li></ul><h2 id="业务拆分"><a href="#业务拆分" class="headerlink" title="业务拆分"></a>业务拆分</h2><h3 id="core基础组件层"><a href="#core基础组件层" class="headerlink" title="core基础组件层"></a>core基础组件层</h3><ul><li>通用的开源库（网络，图片，工具）</li><li>网络库</li><li>自研工具库</li></ul><h3 id="business基础业务组件层"><a href="#business基础业务组件层" class="headerlink" title="business基础业务组件层"></a>business基础业务组件层</h3><ul><li>mvp,mvvm架构的基类</li><li>业务相关的开源UI控件</li><li>业务相关的拓展函数(kotlin相关)</li><li>统一的图片，字符串，主题样式</li></ul><h3 id="commonbusiness通用业务组件层"><a href="#commonbusiness通用业务组件层" class="headerlink" title="commonbusiness通用业务组件层"></a>commonbusiness通用业务组件层</h3><p>这里会包含多个module，每个module只负责唯一一种功能</p><ul><li>登录注册module业务组件</li><li>IM消息module业务组件</li><li>钱包支付module业务组件</li><li>版本更新module业务组件</li><li>调试设置module业务组件</li></ul><h3 id="具体业务层"><a href="#具体业务层" class="headerlink" title="具体业务层"></a>具体业务层</h3><p>实现具体的业务代码，用到通用业务组件，就使用路由跳转，避免直接使用</p><h2 id="组件化工具"><a href="#组件化工具" class="headerlink" title="组件化工具"></a>组件化工具</h2><p>集成调试和组件调试，需要配置不同的android插件，所以需要自定义gradle插件来自动化处理上面的过程<br><a href="https://github.com/luojilab/DDComponentForAndroid" target="_blank" rel="noopener">https://github.com/luojilab/DDComponentForAndroid</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;组件化的目标&quot;&gt;&lt;a href=&quot;#组件化的目标&quot; class=&quot;headerlink&quot; title=&quot;组件化的目标&quot;&gt;&lt;/a&gt;组件化的目标&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;代码解耦&lt;/li&gt;
+&lt;li&gt;组件单独运行&lt;/li&gt;
+&lt;li&gt;跨模块通信&lt;/li&gt;
+&lt;li&gt;集成调
+      
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://gaoneng.work/tags/Android/"/>
+    
+      <category term="组件化" scheme="http://gaoneng.work/tags/%E7%BB%84%E4%BB%B6%E5%8C%96/"/>
+    
+  </entry>
   
   <entry>
     <title>在Ubuntu搭建安卓开发环境</title>
