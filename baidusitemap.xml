@@ -3,10 +3,26 @@
 
 
     
+  <url>
+    <loc>http://gaoneng.work/archives/32703.html</loc>
+    <lastmod>2018-07-27T06:44:57.190Z</lastmod>
+    <data>
+        <display>
+        <title>android内存泄露常见情景以及解决方案</title>
+        <pubTime>2018-07-25T11:42:19.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
     
   <url>
     <loc>http://gaoneng.work/archives/47363.html</loc>
-    <lastmod>2018-07-27T02:59:29.324Z</lastmod>
+    <lastmod>2018-07-27T06:44:57.190Z</lastmod>
     <data>
         <display>
         <title>在Ubuntu搭建安卓开发环境</title>
@@ -27,7 +43,7 @@
     
   <url>
     <loc>http://gaoneng.work/archives/25386.html</loc>
-    <lastmod>2018-07-27T02:59:01.112Z</lastmod>
+    <lastmod>2018-07-27T06:44:57.189Z</lastmod>
     <data>
         <display>
         <title>Android组件化思考</title>
@@ -44,21 +60,5 @@
     </url>
 
     
-  <url>
-    <loc>http://gaoneng.work/archives/32703.html</loc>
-    <lastmod>2018-07-27T02:58:54.280Z</lastmod>
-    <data>
-        <display>
-        <title>android内存泄露常见情景以及解决方案</title>
-        <pubTime>2018-07-25T11:42:19.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
     
 </urlset>
